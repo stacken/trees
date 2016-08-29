@@ -74,7 +74,7 @@ def main():
     if options.addressfile:
         print 'Reading addresses from ' + options.addressfile
         import re
-        addressre = re.compile('(.*)(<[A-Za-z0-9._]+@[a-z.]+>)')
+        addressre = re.compile('(.*)(<[A-Za-z0-9._-]+@[A-Za-z0-9.-]+>)')
         for line in fileinput.input(options.addressfile,
                                     openhook=fileinput.hook_encoded('utf-8')):
             line = line.rstrip()
