@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from email.header import Header
 import fileinput
 import datetime
-
+import json
 import sys
 
 if not sys.stdout.encoding:
@@ -94,64 +94,80 @@ def main():
 
     elif options.finger:
         print 'Reading people from finger.txt'
-        n = 0;
+        n = 0
         import re
         kontonu = re.compile('^[a-z_0-9]+$')
         kontosen = re.compile('^\([a-z_0-9/,]+\)$')
-        for line in fileinput.input('out/finger.txt',
-                                    openhook=fileinput.hook_encoded('iso-8859-1')):
-            fields = line.rstrip().split(';')
-            ( efternamn, fornamn, sortering, titel, c_o, 
-            avdelning, organisation, gatuadress, postadress, land, distribution,
-            hemtelefon, arbtelefon,
-            ppn, anvandarnamn, mailadress, betalt, intradesdatum, uttradesdatum, 
-            status, kortnr, xx) = fields + (22-len(fields))*[None]
 
-            if (status==None) or (efternamn==u'Efternamn' and fornamn==u'Förnamn' and kortnr==u'Kortnr'):
-                continue
+        with open('/afs/stacken.kth.se/home/stacken/Private/finger_txt/finger.json') as json_data:
+            for user in json.load(json_data):
 
-            flags = re.split(',\s*', status)
+                # Gör alla nycklar lowercase
+                user = {k.lower():v for k,v in user.items()}
 
-            if betalt: betalt = int(betalt)
-            else:      betalt = 0
+                # Hoppa över om vi inte har fått en betalning de senaste åren,
+                # men inte om Ny eller Hedersmedlem.
+                if ((user.get('betalt', 0) < datetime.datetime.now().year - 3)
+                    and not (user.get('ny', False))
+                    and not (user.get('hedersmedlem', None))):
+                    continue
 
-            if ((betalt < datetime.datetime.now().year - 3)
-                and not ('Ny' in flags)
-                and not ('Hedersmedlem' in flags)):
-                continue
+                # Bygg en lista av epost-adresser att skicka till.
+                addrs = []
+                if user.get(u'användarnamn', None):
+                    if kontonu.match(user[u'användarnamn']):
+                        addrs.append('<' + user[u'användarnamn'] + '@stacken.kth.se>')
+                    elif not kontosen.match(user[u'användarnamn']):
+                        print u'!!! Strange account name: ' + user[u'användarnamn']
 
-            addrs = []
-            if anvandarnamn:
-                if kontonu.match(anvandarnamn):
-                    addrs = addrs + ['<' + anvandarnamn + '@stacken.kth.se>']
-                elif not kontosen.match(anvandarnamn):
-                    print u'!!! Strange account name: ' + anvandarnamn
+                if user.get('mailadress', None):
+                    if not '<' + user['mailadress'] + '>' in addrs:
+                        addrs.append('<' + user['mailadress'] + '>')
 
-            if mailadress: addrs = addrs + ['<' + mailadress + '>']
+                # Hoppa över om vi inte hittade någon epost-adress.
+                if len(addrs) < 1:
+                    print u"!!! No address found for {} {}".format(
+                            user.get(u'förnamn', 'No first name'),
+                            user.get(u'efternamn', 'No last name')
+                        )
+                    continue
 
-            if (uttradesdatum
-                or ('Slutat' in flags)
-                or ('Utesluten' in flags)
-                or ('Ej medlem' in flags)) :
-                print u'!!! %s %s lämnade stacken %s (%s)' % (fornamn, efternamn, uttradesdatum, status)
-                continue
+                # Hämta flaggor från status-fältet, utträdesdatum, slutat,
+                # utesluten, hedersmedlem, och ny har egna fällt.
+                flags = re.split(',\s*', user.get('status', ""))
 
-            if len(addrs) < 1:
-                print u"!!! No address found for %s %s" % (fornamn, efternamn)
-                continue
+                # Hoppa över personer som har slutat
+                if (user.get(u'utträdesdatum', None)
+                    or (user.get('slutat', False))
+                    or (user.get('utesluten', False))
+                    or ('Ej medlem' in flags)):
+                    print u'!!! {} {} lämnade stacken {}'.format(
+                            user.get(u'förnamn', 'No first name'),
+                            user.get(u'efternamn', 'No last name'),
+                            user.get(u'utträdesdatum', 'Inget utträdesdatum')
+                        )
+                    continue
 
-            if (n < int(options.resume_from)):
-                continue
+                # Säkerställ att det finns ett för och efternamn
+                if not user.get(u'förnamn', None) and not user.get(u'efternamn', None):
+                    print u'!! Missing name for user {}'.format(user.get(u'användarnamn', 'No username'))
+                    continue
 
-            msg = mkmsg(msgfile[0], subject=options.subject,
-                        fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name),
-                        fromaddr='<{0}>'.format(options.from_email),
-                        toname = u'%s %s' % (fornamn, efternamn),
-                        toaddrs = addrs,
-                        reply_to = options.reply_to,
-                        smtp = server,
-                        pos=n)
-            n = n + 1
+                # --resume-from=N
+                if (n < int(options.resume_from)):
+                    n = n + 1
+                    continue
+
+                msg = mkmsg(msgfile[0], subject=options.subject,
+                            fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name),
+                            fromaddr='<{0}>'.format(options.from_email),
+                            toname = u'%s %s' % (user[u'förnamn'], user[u'efternamn']),
+                            toaddrs = addrs,
+                            reply_to = options.reply_to,
+                            smtp = server,
+                            pos=n)
+
+                n = n + 1
 
         print 'There was %s people to send to.' % n
 
