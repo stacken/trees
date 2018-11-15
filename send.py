@@ -24,6 +24,7 @@ def mkmsg(filename, subject, fromname, fromaddr, toname, toaddrs,
                    + fromaddr)
     msg['To'] = (Header(toname.encode(outcs), outcs).__str__()
                  + ' ' + ', '.join(toaddrs))
+    msg['X-Stacken'] = "There's a coffee bug living in the club room."
 
     if reply_to:
         msg['Reply-to'] = reply_to
@@ -83,7 +84,7 @@ def main():
                 pass
             elif m:
                 msg = mkmsg(msgfile[0], subject=options.subject,
-                            fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name),
+                            fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name.decode('utf-8')),
                             fromaddr='<{0}>'.format(options.from_email),
                             toname = m.group(1),
                             toaddrs = [m.group(2)],
