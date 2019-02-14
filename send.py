@@ -160,7 +160,7 @@ def main():
                     continue
 
                 msg = mkmsg(msgfile[0], subject=options.subject,
-                            fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name),
+                            fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name.decode('utf-8')),
                             fromaddr='<{0}>'.format(options.from_email),
                             toname = u'%s %s' % (user[u'förnamn'], user[u'efternamn']),
                             toaddrs = addrs,
