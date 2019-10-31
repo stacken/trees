@@ -1,0 +1,43 @@
+Hej från datorföreningen Stacken!
+
+(There is an english version of this mail below)
+
+Nu har vi äntligen planerat in höstens introföreläsningar i programmering. Föreläsningarna kommer hållas i övningssal Q24, med start på onsdag nästa vecka. Schemat är som följer:
+
+- Intro till Python - onsdag 2 okt kl 18:00.
+
+- Intro till Java - onsdag 9 okt kl 18:00.
+
+- Intro till Git - onsdag 16 okt kl 18:00.
+
+Programmeringsföreläsningarna kommer att rikta sig till den som aldrig har kodat förut, eller har lekt runt med python eller Java men aldrig skrivit ett större program tidigare.
+
+Alla föreläsningar kommer bestå av först en lektion följt av egen problemlösning. Om du är intresserad av att hjälpa till under problemlösningen, hör antingen av dig till oss eller bara dyk upp på den/de föreläsning(ar) du vill vara med på.
+
+Hoppas att många av er dyker upp! :D
+
+// Alexander Hjelm, Sekreterare
+
+
+
+===================================================
+
+Hi from the Stacken Computer Club!
+
+(Det finns en svensk version av detta mail ovanför)
+
+We have finally scheduled this fall's introductory lectures in programming. The lectures will be held in room Q24 on the KTH main campus, starting on wednesday next week. The full schedule is as follows:
+
+- Introduction to Python - Wednesday 2 oct, 18:00
+
+- Introduction to Java - Wednesday 9 oct, 18:00
+
+- Introduction to Git - Wednesday 16 oct, 18:00
+
+The programming lectures will be aimed towards thos who have never coded before, or who have played around with python or Java but never written any larger programs.
+
+All lectures will begin with a presentation, followed by a practise session where students can work on problems themselves. If you are interested in helping out during the practise sessions, either let us know or simply show up at your preferred lecture(s).
+
+Hope that many of you will come! :D
+
+// Alexander Hjelm, Secretary

@@ -1,0 +1,29 @@
+Datorföreningen Stacken välkomnar till kvällsföreläsningen "Embedded Deathmatch" om programmering av mikrocontrollers som Raspberry Pi och Arduino.
+
+Eventet äger rum torsdagen den 7:e november klockan 19:30, i ett rum nära Stackenlokalen.
+
+Sammanfattning:
+
+Vill du mäta eller styra någonting? En översikt över tre enkla och billiga sätt att komma igång med inbäddade system; hårdvara och mjukvara.
+
+Förkunskaper: Det underlättar om du kan något programspråk och vet (på ett ungefär) vad en Volt är.
+
+Av Stellan Lagerström, som har studerat Elektroteknik på KTH en gång i tiden, och har använt alla tre systemen professionellt (och några andra).
+
+// Alexander Hjelm, Sekreterare
+
+--------------------------------------------------
+
+The Stacken Computer Club welcomes you to our evening lecture "Embedded Deathmatch" about programming of micro controllers such as the Raspberry Pi and Arduino.
+
+The event will take place on Thursday, 7:th of November, at 19:30, in a room close to the Stacken club room.
+
+Summary:
+
+Do you want to sense or control something? An overview of three easy and inexpensive roads to getting started with embedded systems; hardware and software.
+
+Requirements: It helps if you know a programming language and (roughly) what a Volt is.
+
+By Stellan Lagerström, who studied EE at KTH once upon a time, and has used all three systems professionally. (And some others.)
+
+// Alexander Hjelm, Secretary

@@ -1,0 +1,48 @@
+(English version below)
+
+Tack för att du sökte medlemskap i datorföreningen Stacken på kårens dag! Du är antagen som medlem. För dig som studerar på KTH är medlemskapet gratis första året.
+
+För att få tillgång till konto och passerkort till lokalen måste du besöka oss för att legitimera dig och för att ta del av och skriva på en ansvarsförbindelse som är ett krav för att få tillgång till datorresurser vid Stacken/KTH.
+
+Vanligtvis finns det folk i lokalen som kan hjälpa dig på torsdagar efter klockan 19. Kontakta styrelsen (enklast genom att svara på det här brevet) om vill du vara säker på att någon är på plats.
+
+Om Stacken:
+Vi är en datorförening på KTH som funnits sedan 1978. Vi har i dag en lokal uppe i Q-huset här vi har ett rum med soffa, kyl, kök och så klart mycket datorer. Vi har även en serverhall där vi driftar ett flertal tjänster som fillagring, E-post, webbsidor m.m.  Datorföreningen Stacken är också en kårförening inom THS, Tekniska Högskolans Studentkår.
+
+Föreningen har genom sina medlemmar mycket kunskap, vi är allt från nya studenter som är här och lär sig, använder lokalen för att studera, till äldre som har gått vidare i arbetslivet och jobbar med allt från programmering till drift av stora kluster av servrar.
+
+Stackens aktiviteter är öppna för alla, medlemmar, studenter, anstälda eller vänner till vänner. Om du är osäker hur du hittar till Stacken, eller hur du kommer in i byggnaden, kontakta styrelsen så hjälper vi dig.
+
+Denna månaden planerar Stacken en föreläsning i programmering av microcontrollers som Raspberry Pi och Arduino. Håll ögonen öppna i mailen!
+
+Vänliga hälsningar,
+Alexander Hjelm, Sekreterare
+
+
+--------------------------------------------------------------
+
+Thank you for requesting to be a member of the Stacken computer club at the THS event "Kårens dag"! Your application for membership has been approved. Since you study at KTH, your first year of membership is free.
+
+To gain access to our computers and facilities you must show proof of identity and read and sign a KTH Rules for computer, network and system facilities.
+
+Usually there are board members in the clubroom on Thursdays from 19:00 CET. Please contact the board (e.g. by answering this mail) if you want to be sure that someone will be present.
+
+About Stacken:
+We are a computer club at KTH founded in 1978. We have a clubroom located in the Q-building where we have a room with a sofa, fridge, kitchen and of course plenty of computers. Also we have a server hall where we runs several services like storage, email and web pages. The club is a part of THS, the official student union at KTH.
+
+The club has plenty of knowledge through its members, we have everything from new students who are here to learn and uses the clubroom to study, all the way to older members that has moved on and started to work with everything from programming to administration of large clusters of servers.
+
+Stackens activities are open for everybody, members, students, employees, or friends of friends. Are you uncertain how to find Stacken or, how to get access to the building, contact the board and we will help you.
+
+This month, Stacken is planning a lecture on programming of micro controllers such as the Raspberry Pi and Arduino. Keep your eyes open on your inbox for more!
+
+Best regards,
+Akexander Hjelm, Secretary
+
+
+-----------------------
+
+Datorföreningen Stacken
+Besöksadress / visitor address: Q-huset, Osquldas väg 6, plan 2
+http://www.stacken.kth.se/hitta
+styrelsen@stacken.kth.se / board@stacken.kth.se
