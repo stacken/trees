@@ -149,6 +149,11 @@ def main():
                         )
                     continue
 
+                # Hoppa över personer som har bett om att inte få mailutskick
+                if not user.get(u'epost-utskick', True):
+                    print u'!! {} has requested that they do not receive e-mails'.format(user.get(u'användarnamn'))
+                    continue
+
                 # Säkerställ att det finns ett för och efternamn
                 if not user.get(u'förnamn', None) and not user.get(u'efternamn', None):
                     print u'!! Missing name for user {}'.format(user.get(u'användarnamn', 'No username'))
