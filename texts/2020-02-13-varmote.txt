@@ -1,10 +1,18 @@
 (There is an English version below)
 
-Härmed kallas Stackens medlemmar till Stackens vårmöte 2020, torsdagen den 27:e februari klockan 19.30 på Kungliga Tekniska Högskolan i en sal i närheten av Stackenlokalen.
+Härmed kallas Stackens medlemmar till Stackens vårmöte 2020, torsdagen den 27:e 
+februari klockan 19.30 på Kungliga Tekniska Högskolan i en sal i närheten av 
+Stackenlokalen.
 
-Var god betala din medlemsavgift om den inte redan är inbetald (eller du är hedersmedlem). Om du betalar den i tid (inkommen innan vårmötet) har du rätt att rösta på vårmötet. För THS-studerandemedlemmar är medlemsavgiften 0 kr, vänligen ta med din kårlegitimation för att styrka ditt medlemskap.
+Var god betala din medlemsavgift om den inte redan är inbetald (eller du är 
+hedersmedlem). Om du betalar den i tid (inkommen innan vårmötet) har du rätt att 
+rösta på vårmötet. För THS-studerandemedlemmar är medlemsavgiften 0 kr, vänligen 
+ta med din kårlegitimation för att styrka ditt medlemskap.
 
-Medlemsavgiften är för närvarande 120 kr och betalas till PG 433 01 15-9, Datorföreningen Stacken. Glöm inte att ange namn och username - samtligas, om du betalar för flera personer. Eventuella frågor kan ställas till styrelsen@stacken.kth.se
+Medlemsavgiften är för närvarande 120 kr och betalas till PG 433 01 15-9, 
+Datorföreningen Stacken. Glöm inte att ange namn och username - samtligas, om du 
+betalar för flera personer. Eventuella frågor kan ställas till 
+styrelsen@stacken.kth.se
 
 ## Förslag till dagordning
 
@@ -22,7 +30,7 @@ Medlemsavgiften är för närvarande 120 kr och betalas till PG 433 01 15-9, Dat
 12. Övriga frågor
 13. Mötets avslutande
 
-Datorföreningen Stackens styrelse, genom Fabian Ström.
+Datorföreningen Stackens styrelse, genom Alexander Hjelm.
 
 (Here begins the English version)
 
@@ -37,7 +45,7 @@ eligible to vote.  For student members of the student union, the
 Stacken membership is free, please bring your proof of membership.
 
 The regular fee is currently 120 SEK and payable to PG 433 01 15-9,
-Stacken Computer Club.  Don't forget to include your name and username
+Datorföreningen Stacken.  Don't forget to include your name and username
 (for everybody, if you pay for more than one person). Any questions
 can be adressed to styrelsen@stacken.kth.se.
 
@@ -57,4 +65,4 @@ can be adressed to styrelsen@stacken.kth.se.
 12. Other issues
 13. End of meeting
 
-Board of Stacken Computer Club via Fabian Ström.
+Board of Stacken Computer Club via Alexander Hjelm.
