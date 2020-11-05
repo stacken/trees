@@ -26,7 +26,7 @@ Förslag till dagordning:
 14. Övriga frågor
 15. Mötets avslutande
 
-// Alexander Hjelm, Sekreterare
+// Alexander Hjelm, Ordförande
 
 -------------------------------------
 
@@ -58,4 +58,4 @@ Proposal of Agenda:
 14. Other Questions
 15. Closing of the Meeting
 
-// Alexander Hjelm, Secretary
+// Alexander Hjelm, Chairman
