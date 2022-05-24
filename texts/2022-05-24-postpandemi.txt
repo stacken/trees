@@ -1,0 +1,32 @@
+Hej!  Du som får det här brevet har någon gång de senaste åren varit
+aktiv i eller försökt gå med i Datorföreningen Stacken, en kårförening
+för datorintesserade vid KTH.  De senaste åren har ju som bekant
+överskuggats av en pandemi, som delar av tiden tvingats oss att hålla
+vår lokal helt stängd och hela tiden satt diverse andra käppar i våra
+hjul.
+
+Nu försöker vi komma igång igen, naturligtvis blir det lite trevande
+under slutet av terminen och sommaren, men förhoppningsvis med mera
+kraft när höstterminen drar igång!  Vill du (fortsätta) vara med?  Om
+du är studerandemedlem i THS är medlemsskapet i Stacken gratis, svara
+bara på det här brevet!  Är du inte studerandemedlem i THS kostar det
+122 kronor att vara med i Stacken under 2022.  I så fall finns också
+möjligheten att vara stödmedlem, till samma pris men utan rösträtt på
+höstmötet och vårmötet.
+
+Lokalen är öppen för medlemmar med passerkort och vi brukar vara några
+stycken som träffas där på torsdagkvällar igen (de som så önskar
+träffas lite tidigare över en bit mat, ofta på Sushi Zen).  Vi har ett
+par spännande stackenföreläsningar på gång, och sedan får vi se vad vi
+kan åstadkomma.  Vi har också vår matrixbaserade chattserver där
+rummet #stacken:stacken.kth.se och några mer specifika rum (ett om
+programmeringsspråket Rust) är öppna för alla som vill vara med.
+Under pandemin har vi varit dåliga på att se till att alla
+intresserade får tillång till matrixservern, nextcloud, unixkonton och
+allt annat vi har igång för våra medlemmar.  Sånt blir lättare när vi
+kan ses i verkligheten, så vi vet att vi lämnar ut lösenord till rätt
+person.
+
+
+Vänliga hälsningar
+Styrelsen för Datorföreningen Stacken
