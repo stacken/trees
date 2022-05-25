@@ -1,7 +1,7 @@
 Hej!  Du som får det här brevet har någon gång de senaste åren varit
 aktiv i eller försökt gå med i Datorföreningen Stacken, en kårförening
 för datorintesserade vid KTH.  De senaste åren har ju som bekant
-överskuggats av en pandemi, som delar av tiden tvingats oss att hålla
+överskuggats av en pandemi, som delar av tiden tvingat oss att hålla
 vår lokal helt stängd och hela tiden satt diverse andra käppar i våra
 hjul.
 
@@ -16,9 +16,13 @@ höstmötet och vårmötet.
 
 Lokalen är öppen för medlemmar med passerkort och vi brukar vara några
 stycken som träffas där på torsdagkvällar igen (de som så önskar
-träffas lite tidigare över en bit mat, ofta på Sushi Zen).  Vi har ett
-par spännande stackenföreläsningar på gång, och sedan får vi se vad vi
-kan åstadkomma.  Vi har också vår matrixbaserade chattserver där
+träffas lite tidigare över en bit mat, ofta på Sushi Zen).  Det brukar
+finnas någon i lokalen från någon gång mellan sju och åtta till tio
+eller midnatt eller senare ...
+
+Vi har ett par spännande stackenföreläsningar på gång, och sedan får
+vi se vad vi kan åstadkomma.  Kanske har du något specialområde du
+vill berätta om?  Vi har också vår matrixbaserade chattserver där
 rummet #stacken:stacken.kth.se och några mer specifika rum (ett om
 programmeringsspråket Rust) är öppna för alla som vill vara med.
 Under pandemin har vi varit dåliga på att se till att alla
