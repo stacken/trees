@@ -40,7 +40,7 @@ Styrelsen för Datorföreningen Stacken
 (---- look here for english ----)
 
 Hi!  You get this mail because sometime the last five years you were
-active in, or tried to you, the Stacken Computer Club.  Stacken is an
+active in, or tried to join, the Stacken Computer Club.  Stacken is an
 asssociation for people at KTH interested in computers, and a part of
 the student union THS.  As you know, these last years has been
 overshadowed by the pandemic, sometimes forcing us to close down the
@@ -52,8 +52,8 @@ force when the fall term gets going!  Do you want to (continue to)
 participate?  If you are a studying member of THS, Stacken membership
 is free.  Please reply to this message and tell us that.  Otherwise,
 Stacken membership is SEK 122:- for 2022.  There is also the
-possibility of beeing a support member, for the same price but without
-a vote on fall- and spring meeting.
+possibility of becoming a support member, for the same price but
+without a vote on fall- and spring meeting.
 
 Our club room is open for members with an access card, and usually
 some of us meet there on thursday evenings (those who like to often
@@ -69,7 +69,7 @@ the room #stacken:stacken.kth.se and some more specific rooms
 wants to join.  During the pandemic, we have been bad at making sure
 all interested members gets an account at the matrix server,
 nextcloud, the unix / kerberos system and everything else we have for
-our members.  Such things gets easier when we can meed face to face,
+our members.  Such things gets easier when we can meet face to face,
 and make sure we give out passwords to the right person.
 
 
