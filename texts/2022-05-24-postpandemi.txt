@@ -1,3 +1,5 @@
+(Message in English follows below)
+
 Hej!  Du som får det här brevet har någon gång de senaste åren varit
 aktiv i eller försökt gå med i Datorföreningen Stacken, en kårförening
 för datorintesserade vid KTH.  De senaste åren har ju som bekant
@@ -34,3 +36,42 @@ person.
 
 Vänliga hälsningar
 Styrelsen för Datorföreningen Stacken
+
+(---- look here for english ----)
+
+Hi!  You get this mail because sometime the last five years you were
+active in, or tried to you, the Stacken Computer Club.  Stacken is an
+asssociation for people at KTH interested in computers, and a part of
+the student union THS.  As you know, these last years has been
+overshadowed by the pandemic, sometimes forcing us to close down the
+club room entirely, and all the time messing with our plans.
+
+Now we are trying to get started again.  Natually a bit fumbling
+during the end of this term and the summer, but hopefully in full
+force when the fall term gets going!  Do you want to (continue to)
+participate?  If you are a studying member of THS, Stacken membership
+is free.  Please reply to this message and tell us that.  Otherwise,
+Stacken membership is SEK 122:- for 2022.  There is also the
+possibility of beeing a support member, for the same price but without
+a vote on fall- and spring meeting.
+
+Our club room is open for members with an access card, and usually
+some of us meet there on thursday evenings (those who like to often
+meets a bit earlier at Sushi Zen for a bit of food).  There is usually
+some people in the clubroom from sometime around seven or eight and
+until ten or midnight or later ...
+
+We have a couple of exciting Stacken lectures lined up, and then we'll
+see what we can do.  Maybe you have a special interest you want to
+tell people about?  We also have our Matrix based chat server, where
+the room #stacken:stacken.kth.se and some more specific rooms
+(e.g. one about the Rust programming language) is open to everyone who
+wants to join.  During the pandemic, we have been bad at making sure
+all interested members gets an account at the matrix server,
+nextcloud, the unix / kerberos system and everything else we have for
+our members.  Such things gets easier when we can meed face to face,
+and make sure we give out passwords to the right person.
+
+
+Kind regards
+The board of Stacken Computer Club.
