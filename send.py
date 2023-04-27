@@ -110,7 +110,7 @@ def main():
                 # men inte om Ny eller Hedersmedlem.
                 thisyear = datetime.datetime.now().year
                 if ((user.get('betalt', 0) < thisyear - 3)
-                    and not (user.get('THS-studerande', 0) < thisyear - 3)
+                    and (user.get('THS-studerande', 0) < thisyear - 3)
                     and not (user.get('ny', False))
                     and not (user.get('hedersmedlem', None))):
                     continue
