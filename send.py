@@ -108,7 +108,9 @@ def main():
 
                 # Hoppa över om vi inte har fått en betalning de senaste åren,
                 # men inte om Ny eller Hedersmedlem.
-                if ((user.get('betalt', 0) < datetime.datetime.now().year - 3)
+                thisyear = datetime.datetime.now().year
+                if ((user.get('betalt', 0) < thisyear - 3)
+                    and not (user.get('THS-studerande', 0) < thisyear - 3)
                     and not (user.get('ny', False))
                     and not (user.get('hedersmedlem', None))):
                     continue
