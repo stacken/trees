@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 import smtplib
 import codecs
-from email.mime.text import MIMEText
-from email.header import Header
+from email.message import EmailMessage
 from email.utils import formatdate
 import fileinput
 import datetime
@@ -16,15 +15,13 @@ if not sys.stdout.encoding:
 def mkmsg(filename, subject, fromname, fromaddr, toname, toaddrs,
           smtp, reply_to = None, outcs = 'utf-8', pos=0):
 
-    f = codecs.open(filename, mode='r', encoding='utf-8')
-    msg = MIMEText(f.read().encode(outcs), 'plain', outcs)
-    f.close()
+    msg = EmailMessage()
+    with codecs.open(filename, mode='r', encoding='utf-8') as f:
+        msg.set_content(f.read())
 
-    msg['Subject'] = Header(subject.decode('utf-8').encode(outcs), outcs)
-    msg['From'] = (Header(fromname.encode(outcs), outcs).__str__()
-                   + fromaddr)
-    msg['To'] = (Header(toname.encode(outcs), outcs).__str__()
-                 + ' ' + ', '.join(toaddrs))
+    msg['Subject'] = subject
+    msg['From'] = f"{fromname} {fromaddr}"
+    msg['To'] = f"{toname} {', '.join(toaddrs)}"
     msg['Date'] = formatdate(localtime=1)
     msg['X-Stacken'] = "There's a coffee bug living in the club room."
 
@@ -32,10 +29,10 @@ def mkmsg(filename, subject, fromname, fromaddr, toname, toaddrs,
         msg['Reply-to'] = reply_to
 
     if smtp:
-        print("[{}] Sending to {}".format(pos, msg['To']))
-        smtp.sendmail(fromaddr, toaddrs, msg.as_string())
+        print(f"[{pos}] Sending to {msg['To']}")
+        smtp.send_message(msg)
     else:
-        print("[{}] Not sending to {}".format(pos, msg['To']))
+        print(f"[{pos}] Not sending to {msg['To']}")
 
 from optparse import OptionParser
 def main():
@@ -86,8 +83,8 @@ def main():
                 pass
             elif m:
                 msg = mkmsg(msgfile[0], subject=options.subject,
-                            fromname='Datorföreningen Stacken via {0}'.format(options.from_name.decode('utf-8')),
-                            fromaddr='<{0}>'.format(options.from_email),
+                            fromname=f"Datorföreningen Stacken via {options.from_name}",
+                            fromaddr=f"<{options.from_email}>",
                             toname = m.group(1),
                             toaddrs = [m.group(2)],
                             reply_to = options.reply_to,
@@ -169,9 +166,9 @@ def main():
                     continue
 
                 msg = mkmsg(msgfile[0], subject=options.subject,
-                            fromname='Datorföreningen Stacken via {0}'.format(options.from_name.decode('utf-8')),
-                            fromaddr='<{0}>'.format(options.from_email),
-                            toname = '%s %s' % (user.get('förnamn', ''), user.get('efternamn', '')),
+                            fromname=f"Datorföreningen Stacken via {options.from_name}",
+                            fromaddr=f"<{options.from_email}>",
+                            toname = f"{user.get('förnamn', '')} {user.get('efternamn', '')}",
                             toaddrs = addrs,
                             reply_to = options.reply_to,
                             smtp = server,
@@ -179,15 +176,15 @@ def main():
 
                 n = n + 1
 
-        print('There was %s people to send to.' % n)
+        print(f"There was {n} people to send to.")
 
     else:
         print('No addresses.  Sending to myself for debugging.')
         msg = mkmsg(msgfile[0], subject=options.subject,
-                    fromname='Datorföreningen Stacken via {0}'.format(options.from_name),
-                    fromaddr='<{0}>'.format(options.from_email),
-                    toname = '{0}'.format(options.from_name),
-                    toaddrs  = ['<{0}>'.format(options.from_email)],
+                    fromname=f"Datorföreningen Stacken via {options.from_name}",
+                    fromaddr=f"<{options.from_email}>",
+                    toname = f"{options.from_name}",
+                    toaddrs = [f"<{options.from_email}>"],
                     reply_to = options.reply_to,
                     smtp = server)
 
