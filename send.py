@@ -32,10 +32,10 @@ def mkmsg(filename, subject, fromname, fromaddr, toname, toaddrs,
         msg['Reply-to'] = reply_to
 
     if smtp:
-        print "[{}] Sending to {}".format(pos, msg['To'])
+        print("[{}] Sending to {}".format(pos, msg['To']))
         smtp.sendmail(fromaddr, toaddrs, msg.as_string())
     else:
-        print "[{}] Not sending to {}".format(pos, msg['To'])
+        print("[{}] Not sending to {}".format(pos, msg['To']))
 
 from optparse import OptionParser
 def main():
@@ -57,25 +57,25 @@ def main():
     (options, msgfile) = opt.parse_args()
 
     if not options.subject:
-        raise Exception, 'A subject is required'
+        raise Exception('A subject is required')
 
     if not options.from_email:
-        raise Exception, 'From E-mail is required'
+        raise Exception('From E-mail is required')
 
     if not options.from_name:
-        raise Exception, 'From Name is required'
+        raise Exception('From Name is required')
 
     if not msgfile or len(msgfile) != 1:
-        raise Exception, 'Exactly one message file is required'
+        raise Exception('Exactly one message file is required')
 
     server = None
     if options.doit:
-        print 'Initializing smtp'
+        print('Initializing smtp')
         server = smtplib.SMTP('smtp.stacken.kth.se')
         server.set_debuglevel(0)
 
     if options.addressfile:
-        print 'Reading addresses from ' + options.addressfile
+        print('Reading addresses from ' + options.addressfile)
         import re
         addressre = re.compile('(.*)(<[A-Za-z0-9._-]+@[A-Za-z0-9.-]+>)')
         for line in fileinput.input(options.addressfile,
@@ -86,17 +86,17 @@ def main():
                 pass
             elif m:
                 msg = mkmsg(msgfile[0], subject=options.subject,
-                            fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name.decode('utf-8')),
+                            fromname='Datorföreningen Stacken via {0}'.format(options.from_name.decode('utf-8')),
                             fromaddr='<{0}>'.format(options.from_email),
                             toname = m.group(1),
                             toaddrs = [m.group(2)],
                             reply_to = options.reply_to,
                             smtp = server)
             else:
-                print "Bad line: " + line
+                print("Bad line: " + line)
 
     elif options.finger:
-        print 'Reading people from finger.txt'
+        print('Reading people from finger.txt')
         n = 0
         import re
         kontonu = re.compile('^[a-z_0-9]+$')
@@ -106,7 +106,7 @@ def main():
             for user in json.load(json_data):
 
                 # Gör alla nycklar lowercase
-                user = {k.lower():v for k,v in user.items()}
+                user = {k.lower():v for k,v in list(user.items())}
 
                 # Hoppa över om vi inte har fått en betalning de senaste åren,
                 # men inte om Ny eller Hedersmedlem.
@@ -119,11 +119,11 @@ def main():
 
                 # Bygg en lista av epost-adresser att skicka till.
                 addrs = []
-                if user.get(u'användarnamn', None):
-                    if kontonu.match(user[u'användarnamn']):
-                        addrs.append('<' + user[u'användarnamn'] + '@stacken.kth.se>')
-                    elif not kontosen.match(user[u'användarnamn']):
-                        print u'!!! Strange account name: ' + user[u'användarnamn']
+                if user.get('användarnamn', None):
+                    if kontonu.match(user['användarnamn']):
+                        addrs.append('<' + user['användarnamn'] + '@stacken.kth.se>')
+                    elif not kontosen.match(user['användarnamn']):
+                        print('!!! Strange account name: ' + user['användarnamn'])
 
                 if user.get('mailadress', None):
                     if not '<' + user['mailadress'] + '>' in addrs:
@@ -131,10 +131,10 @@ def main():
 
                 # Hoppa över om vi inte hittade någon epost-adress.
                 if len(addrs) < 1:
-                    print u"!!! No address found for {} {}".format(
-                            user.get(u'förnamn', 'No first name'),
-                            user.get(u'efternamn', 'No last name')
-                        )
+                    print("!!! No address found for {} {}".format(
+                            user.get('förnamn', 'No first name'),
+                            user.get('efternamn', 'No last name')
+                        ))
                     continue
 
                 # Hämta flaggor från status-fältet, utträdesdatum, slutat,
@@ -142,25 +142,25 @@ def main():
                 flags = re.split(',\s*', user.get('status', ""))
 
                 # Hoppa över personer som har slutat
-                if (user.get(u'utträdesdatum', None)
+                if (user.get('utträdesdatum', None)
                     or (user.get('slutat', False))
                     or (user.get('utesluten', False))
                     or ('Ej medlem' in flags)):
-                    print u'!!! {} {} lämnade stacken {}'.format(
-                            user.get(u'förnamn', 'No first name'),
-                            user.get(u'efternamn', 'No last name'),
-                            user.get(u'utträdesdatum', 'Inget utträdesdatum')
-                        )
+                    print('!!! {} {} lämnade stacken {}'.format(
+                            user.get('förnamn', 'No first name'),
+                            user.get('efternamn', 'No last name'),
+                            user.get('utträdesdatum', 'Inget utträdesdatum')
+                        ))
                     continue
 
                 # Hoppa över personer som har bett om att inte få mailutskick
-                if not user.get(u'epost-utskick', True):
-                    print u'!! {} has requested that they do not receive e-mails'.format(user.get(u'användarnamn'))
+                if not user.get('epost-utskick', True):
+                    print('!! {} has requested that they do not receive e-mails'.format(user.get('användarnamn')))
                     continue
 
                 # Säkerställ att det finns ett för och efternamn
-                if not user.get(u'förnamn', None) and not user.get(u'efternamn', None):
-                    print u'!! Missing name for user {}'.format(user.get(u'användarnamn', 'No username'))
+                if not user.get('förnamn', None) and not user.get('efternamn', None):
+                    print('!! Missing name for user {}'.format(user.get('användarnamn', 'No username')))
                     continue
 
                 # --resume-from=N
@@ -169,9 +169,9 @@ def main():
                     continue
 
                 msg = mkmsg(msgfile[0], subject=options.subject,
-                            fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name.decode('utf-8')),
+                            fromname='Datorföreningen Stacken via {0}'.format(options.from_name.decode('utf-8')),
                             fromaddr='<{0}>'.format(options.from_email),
-                            toname = u'%s %s' % (user.get(u'förnamn', ''), user.get(u'efternamn', '')),
+                            toname = '%s %s' % (user.get('förnamn', ''), user.get('efternamn', '')),
                             toaddrs = addrs,
                             reply_to = options.reply_to,
                             smtp = server,
@@ -179,14 +179,14 @@ def main():
 
                 n = n + 1
 
-        print 'There was %s people to send to.' % n
+        print('There was %s people to send to.' % n)
 
     else:
-        print 'No addresses.  Sending to myself for debugging.'
+        print('No addresses.  Sending to myself for debugging.')
         msg = mkmsg(msgfile[0], subject=options.subject,
-                    fromname=u'Datorföreningen Stacken via {0}'.format(options.from_name),
+                    fromname='Datorföreningen Stacken via {0}'.format(options.from_name),
                     fromaddr='<{0}>'.format(options.from_email),
-                    toname = u'{0}'.format(options.from_name),
+                    toname = '{0}'.format(options.from_name),
                     toaddrs  = ['<{0}>'.format(options.from_email)],
                     reply_to = options.reply_to,
                     smtp = server)
