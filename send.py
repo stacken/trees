@@ -8,6 +8,7 @@ import fileinput
 import datetime
 import json
 import sys
+from optparse import OptionParser
 
 if not sys.stdout.encoding:
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
@@ -34,7 +35,6 @@ def mkmsg(filename, subject, fromname, fromaddr, toname, toaddrs,
     else:
         print(f"[{pos}] Not sending to {msg['To']}")
 
-from optparse import OptionParser
 def main():
     opt = OptionParser(usage='usage: %prog [options] msgfile')
     opt.add_option('--doit', action='store_true', dest='doit', default=False,
@@ -78,17 +78,17 @@ def main():
         for line in fileinput.input(options.addressfile,
                                     openhook=fileinput.hook_encoded('utf-8')):
             line = line.rstrip()
-            m = addressre.match(line);
+            m = addressre.match(line)
             if line == '':
                 pass
             elif m:
-                msg = mkmsg(msgfile[0], subject=options.subject,
-                            fromname=f"Datorföreningen Stacken via {options.from_name}",
-                            fromaddr=f"<{options.from_email}>",
-                            toname = m.group(1),
-                            toaddrs = [m.group(2)],
-                            reply_to = options.reply_to,
-                            smtp = server)
+                mkmsg(msgfile[0], subject=options.subject,
+                      fromname=f"Datorföreningen Stacken via {options.from_name}",
+                      fromaddr=f"<{options.from_email}>",
+                      toname = m.group(1),
+                      toaddrs = [m.group(2)],
+                      reply_to = options.reply_to,
+                      smtp = server)
             else:
                 print("Bad line: " + line)
 
@@ -123,7 +123,7 @@ def main():
                         print('!!! Strange account name: ' + user['användarnamn'])
 
                 if user.get('mailadress', None):
-                    if not '<' + user['mailadress'] + '>' in addrs:
+                    if '<' + user['mailadress'] + '>' not in addrs:
                         addrs.append('<' + user['mailadress'] + '>')
 
                 # Hoppa över om vi inte hittade någon epost-adress.
@@ -165,14 +165,14 @@ def main():
                     n = n + 1
                     continue
 
-                msg = mkmsg(msgfile[0], subject=options.subject,
-                            fromname=f"Datorföreningen Stacken via {options.from_name}",
-                            fromaddr=f"<{options.from_email}>",
-                            toname = f"{user.get('förnamn', '')} {user.get('efternamn', '')}",
-                            toaddrs = addrs,
-                            reply_to = options.reply_to,
-                            smtp = server,
-                            pos=n)
+                mkmsg(msgfile[0], subject=options.subject,
+                      fromname=f"Datorföreningen Stacken via {options.from_name}",
+                      fromaddr=f"<{options.from_email}>",
+                      toname = f"{user.get('förnamn', '')} {user.get('efternamn', '')}",
+                      toaddrs = addrs,
+                      reply_to = options.reply_to,
+                      smtp = server,
+                      pos=n)
 
                 n = n + 1
 
@@ -180,13 +180,13 @@ def main():
 
     else:
         print('No addresses.  Sending to myself for debugging.')
-        msg = mkmsg(msgfile[0], subject=options.subject,
-                    fromname=f"Datorföreningen Stacken via {options.from_name}",
-                    fromaddr=f"<{options.from_email}>",
-                    toname = f"{options.from_name}",
-                    toaddrs = [f"<{options.from_email}>"],
-                    reply_to = options.reply_to,
-                    smtp = server)
+        mkmsg(msgfile[0], subject=options.subject,
+              fromname=f"Datorföreningen Stacken via {options.from_name}",
+              fromaddr=f"<{options.from_email}>",
+              toname = f"{options.from_name}",
+              toaddrs = [f"<{options.from_email}>"],
+              reply_to = options.reply_to,
+              smtp = server)
 
     if server:
         server.quit()
