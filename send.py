@@ -4,6 +4,7 @@ import smtplib
 import codecs
 from email.mime.text import MIMEText
 from email.header import Header
+from email.utils import formatdate
 import fileinput
 import datetime
 import json
@@ -13,7 +14,7 @@ if not sys.stdout.encoding:
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
 
 def mkmsg(filename, subject, fromname, fromaddr, toname, toaddrs,
-          smtp, reply_to = None, outcs = 'iso-8859-1', pos=0):
+          smtp, reply_to = None, outcs = 'utf-8', pos=0):
 
     f = codecs.open(filename, mode='r', encoding='utf-8')
     msg = MIMEText(f.read().encode(outcs), 'plain', outcs)
@@ -24,6 +25,7 @@ def mkmsg(filename, subject, fromname, fromaddr, toname, toaddrs,
                    + fromaddr)
     msg['To'] = (Header(toname.encode(outcs), outcs).__str__()
                  + ' ' + ', '.join(toaddrs))
+    msg['Date'] = formatdate(localtime=1)
     msg['X-Stacken'] = "There's a coffee bug living in the club room."
 
     if reply_to:
